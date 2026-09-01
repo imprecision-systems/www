@@ -169,9 +169,13 @@ section.alt { background: var(--bg-alt); border-block: 1px solid var(--rule); }
 
 /* ---------- service cards ---------- */
 
+/* min(100%, N) rather than a bare N: a bare track floor is a MINIMUM the grid
+   refuses to go under, so on a viewport narrower than N + the wrap padding it
+   pushes the page wider than the screen and the whole body scrolls sideways.
+   Measured at 320px before this: body scrollWidth 348 vs 320 viewport. */
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 288px), 1fr));
   gap: 22px;
 }
 
@@ -256,7 +260,7 @@ section.alt { background: var(--bg-alt); border-block: 1px solid var(--rule); }
 
 .split {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: 44px;
   align-items: start;
 }
@@ -302,7 +306,7 @@ section.alt { background: var(--bg-alt); border-block: 1px solid var(--rule); }
 
 .brand-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: 22px;
 }
 .brand-card {
@@ -344,7 +348,7 @@ section.alt { background: var(--bg-alt); border-block: 1px solid var(--rule); }
 .contact .section-head p { color: #b6cfdd; }
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
   gap: 32px;
   margin-top: 8px;
 }
@@ -382,12 +386,20 @@ section.alt { background: var(--bg-alt); border-block: 1px solid var(--rule); }
 /* ---------- responsive ---------- */
 
 @media (max-width: 720px) {
+  .wrap { padding: 0 20px; }
   .site-header .wrap { min-height: 60px; flex-wrap: wrap; padding-block: 10px; }
-  .site-nav { gap: 18px; font-size: 0.9rem; }
+  /* Drop the two longest items so the nav is one row on a phone. Both
+     sections stay reachable by scrolling; only the shortcut goes. */
+  .site-nav .nav-wide { display: none; }
+  /* Must be `.site-nav a`, not `.site-nav`: the base rule is `.site-nav a`
+     (0,1,1) and outranks a bare `.site-nav` (0,1,0) here, so setting the size
+     on the container silently does nothing. */
+  .site-nav { gap: 13px; }
+  .site-nav a { font-size: 0.85rem; }
   .hero { padding: 62px 0 58px; }
   section { padding: 60px 0; }
-  /* the nav wraps to two rows here, so the header is ~152px tall */
-  section[id] { scroll-margin-top: 160px; }
+  /* header is 107px here: one logo row + one nav row (measured at 320 and 390) */
+  section[id] { scroll-margin-top: 115px; }
   .hero-facts { margin-top: 44px; }
   .section-media { aspect-ratio: 16 / 9; }
 }
