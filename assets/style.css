@@ -160,6 +160,9 @@ p { margin: 0 0 1em; }
 /* ---------- sections ---------- */
 
 section { padding: 84px 0; }
+
+/* the header is sticky, so an anchored section must clear it */
+section[id] { scroll-margin-top: 76px; }
 section.alt { background: var(--bg-alt); border-block: 1px solid var(--rule); }
 .section-head { max-width: 66ch; margin-bottom: 48px; }
 .section-head p { color: var(--ink-muted); font-size: 1.06rem; margin-bottom: 0; }
@@ -310,6 +313,25 @@ section.alt { background: var(--bg-alt); border-block: 1px solid var(--rule); }
 }
 .brand-card h3 { color: var(--navy-800); }
 .brand-card p { color: var(--ink-muted); font-size: 0.96rem; }
+.brand-card p:last-child { margin-bottom: 0; }
+.brand-card ul {
+  margin: 0;
+  padding-left: 1.15em;
+  color: var(--ink-muted);
+  font-size: 0.92rem;
+}
+.brand-card li { margin-bottom: 0.3em; }
+
+/* wide image introducing a section */
+.section-media {
+  display: block;
+  width: 100%;
+  aspect-ratio: 21 / 6;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  margin-bottom: 34px;
+}
 
 /* ---------- contact ---------- */
 
@@ -364,7 +386,10 @@ section.alt { background: var(--bg-alt); border-block: 1px solid var(--rule); }
   .site-nav { gap: 18px; font-size: 0.9rem; }
   .hero { padding: 62px 0 58px; }
   section { padding: 60px 0; }
+  /* the nav wraps to two rows here, so the header is ~152px tall */
+  section[id] { scroll-margin-top: 160px; }
   .hero-facts { margin-top: 44px; }
+  .section-media { aspect-ratio: 16 / 9; }
 }
 
 @media (prefers-reduced-motion: reduce) {
