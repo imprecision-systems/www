@@ -23,7 +23,7 @@ than hot-linked, so the published site makes no external requests.
 | `assets/img/svc-manufacturing.jpg` | `photo-1532186773960-85649e5cb70b` | Pick-and-place head over a panel |
 | `assets/img/svc-compliance.jpg` | `photo-1587293852726-70cdb56c2866` | Palletised goods on warehouse racking |
 | `assets/img/svc-supply.jpg` | `photo-1494412519320-aa613dfb7738` | Container terminal from the air |
-| `assets/img/shenzhen-line.jpg` | `photo-1716191300020-b52dec5b70a8` | Production line (Shenzhen section) |
+| `assets/img/operations-line.jpg` | `photo-1716191300020-b52dec5b70a8` | Production line (Operations section) |
 
 To view the original of any of these, the source is
 `https://images.unsplash.com/<photo ID>`.
