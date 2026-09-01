@@ -105,11 +105,30 @@ p { margin: 0 0 1em; }
 /* ---------- hero ---------- */
 
 .hero {
-  background:
-    radial-gradient(900px 420px at 82% -12%, rgba(0, 179, 227, 0.26), transparent 60%),
-    linear-gradient(180deg, var(--navy-900), var(--navy-800));
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(180deg, var(--navy-900), var(--navy-800));
   color: #eaf3f8;
   padding: 92px 0 84px;
+  overflow: hidden;
+}
+
+/* photograph, then the tint that keeps the type readable over it */
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+.hero::before {
+  background: url("img/hero-board.jpg") center / cover no-repeat;
+  opacity: 0.34;
+}
+.hero::after {
+  background:
+    radial-gradient(900px 420px at 82% -12%, rgba(0, 179, 227, 0.3), transparent 62%),
+    linear-gradient(105deg, rgba(1, 28, 43, 0.95) 34%, rgba(1, 28, 43, 0.62) 100%);
 }
 .hero h1 { color: #fff; max-width: 17ch; }
 .hero .lede {
@@ -157,10 +176,25 @@ section.alt { background: var(--bg-alt); border-block: 1px solid var(--rule); }
   background: #fff;
   border: 1px solid var(--rule);
   border-radius: var(--radius);
-  padding: 26px 24px 24px;
+  overflow: hidden;
   transition: border-color 0.15s ease, transform 0.15s ease;
+  display: flex;
+  flex-direction: column;
 }
 .card:hover { border-color: var(--cyan-500); transform: translateY(-2px); }
+
+.card-media {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--rule);
+  filter: saturate(0.92);
+}
+.card:hover .card-media { filter: saturate(1); }
+
+.card-body { padding: 22px 24px 24px; }
 .card h3 { margin-bottom: 0.45em; color: var(--navy-800); }
 .card p { color: var(--ink-muted); font-size: 0.96rem; margin-bottom: 0.9em; }
 .card ul { margin: 0; padding-left: 1.15em; color: var(--ink-muted); font-size: 0.92rem; }
@@ -173,6 +207,46 @@ section.alt { background: var(--bg-alt); border-block: 1px solid var(--rule); }
   letter-spacing: 0.14em;
   color: var(--cyan-600);
   margin-bottom: 12px;
+}
+
+/* ---------- full-bleed statement band ---------- */
+
+.band {
+  position: relative;
+  isolation: isolate;
+  padding: 96px 0;
+  color: #eaf3f8;
+  background: var(--navy-900);
+  overflow: hidden;
+  border-block: none;
+}
+.band::before,
+.band::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+.band::before {
+  background: url("img/band-circuit.jpg") center / cover no-repeat;
+  opacity: 0.55;
+}
+.band::after {
+  background: linear-gradient(100deg, rgba(1, 28, 43, 0.94) 30%, rgba(1, 28, 43, 0.55) 100%);
+}
+.band blockquote {
+  margin: 0;
+  max-width: 26ch;
+  font-size: clamp(1.4rem, 3.1vw, 2.05rem);
+  line-height: 1.28;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  color: #fff;
+}
+.band .band-note {
+  margin: 20px 0 0;
+  max-width: 56ch;
+  color: #b6cfdd;
 }
 
 /* ---------- engagement / two-col ---------- */

@@ -11,6 +11,8 @@ Static marketing site for **Imprecision Systems LLC**, published with GitHub Pag
 | `assets/style.css` | All styling; no frameworks, no external requests |
 | `assets/logo.png` | Company wordmark, used in the header and for social previews |
 | `assets/mark.png` | Square version of the logo mark, used as the favicon |
+| `assets/img/` | Photography — hero, statement band, and one per service card |
+| `CREDITS.md` | Image provenance and licensing |
 | `.nojekyll` | Disables Jekyll processing; files are served verbatim |
 | `robots.txt` | Allows all crawlers, points at the sitemap |
 | `sitemap.xml` | Single-URL sitemap |
