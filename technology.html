@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Technology — Imprecision Systems</title>
+<meta name="description" content="How Imprecision Systems delivers embedded engineering: AI agents directed by our engineers bring up new boards, vendor firmware is audited rather than trusted, and our AI engine runs reasoning, audio and vision models on the board's own processors.">
+<meta name="theme-color" content="#011c2b">
+<link rel="canonical" href="https://imprecisionsystems.com/technology.html">
+<link rel="icon" href="assets/mark.png">
+<link rel="apple-touch-icon" href="assets/mark.png">
+<link rel="stylesheet" href="assets/style.css">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Technology — Imprecision Systems">
+<meta property="og:description" content="AI-driven board bring-up, audited firmware, and an on-device AI engine for reasoning, audio and vision.">
+<meta property="og:url" content="https://imprecisionsystems.com/technology.html">
+<meta property="og:image" content="https://imprecisionsystems.com/assets/img/hero-board.jpg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Imprecision Systems home">
+      <img src="assets/logo.png" alt="Imprecision Systems">
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html#services">What we do</a>
+      <a class="nav-wide" href="index.html#process">How we work</a>
+      <a class="nav-wide" href="index.html#brands">Proof</a>
+      <a href="index.html#markets">Markets</a>
+      <a href="index.html#contact">Contact</a>
+      <a class="nav-wide" href="technology.html" aria-current="page">Technology</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ---------------- technology ---------------- -->
+<section id="technology">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Technology</p>
+      <h2>From new silicon to a secure, AI-capable product</h2>
+      <p>
+        Most embedded products ship on a chip vendor's board support package:
+        often a forked kernel that is rarely upstreamed or independently
+        audited, and is frozen on an old release. We replace as much of it as
+        we can with software we build, audit and maintain ourselves, using AI
+        agents directed by our engineers.
+      </p>
+    </div>
+
+    <div class="brand-row">
+
+      <article class="brand-card">
+        <h3>AI-driven bring-up</h3>
+        <p>
+          AI agents write most of the board support package, and the hardware judges
+          the result: changes are tested on physical boards in our lab, with
+          remote power, serial consoles and scripted boot.
+        </p>
+        <ul>
+          <li>Bootloader and secure firmware stages</li>
+          <li>Linux kernel based on mainline (the official, publicly maintained kernel), with device trees and drivers</li>
+          <li>Graphics, display, video and USB enablement</li>
+          <li>New platforms on our own boot chain instead of the vendor's BSP</li>
+        </ul>
+      </article>
+
+      <article class="brand-card">
+        <h3>Firmware supply-chain security</h3>
+        <p>
+          Vendor firmware and binaries are inspected rather than trusted, and
+          findings are recorded as evidence, not asserted.
+        </p>
+        <ul>
+          <li>Independent audit of vendor boot and secure-world (TrustZone) firmware</li>
+          <li>Search for undocumented interfaces and open debug paths</li>
+          <li>Agent review of our own firmware changes for input-validation and privilege flaws</li>
+          <li>Working toward an auditable boot chain on maintained, open software</li>
+        </ul>
+      </article>
+
+      <article class="brand-card">
+        <h3>Our AI engine</h3>
+        <p>
+          One engine targets the board's CPUs, DSPs and NPUs without the chip
+          vendor's AI SDK.
+        </p>
+        <ul>
+          <li>Reasoning, audio and vision models</li>
+          <li>Backends for CPUs, DSPs and NPUs</li>
+          <li>On-device inference, with no cloud round trip</li>
+        </ul>
+      </article>
+
+    </div>
+
+    <p style="margin-top:32px;color:var(--ink-muted)">
+      <strong style="color:var(--navy-800)">Research:</strong> gaema, our
+      research arm, works on machine-learning systems, models and tools.
+      <a href="https://gaema.ai/" rel="noopener">gaema.ai &rarr;</a>
+    </p>
+  </div>
+</section>
+
+<!-- ---------------- statement band ---------------- -->
+<section class="band">
+  <div class="wrap">
+    <blockquote>Firmware audited, not trusted, on hardware you can deploy.</blockquote>
+    <p class="band-note">
+      Devices across industry and infrastructure run firmware few people
+      outside the chip vendor have read. We replace it with open software
+      where we can, inspect and document what remains, and maintain it on mainline-based
+      Linux for the life of the product. Next, we plan to assemble our own reference and production
+      boards in the United States, so American customers can go from
+      prototype to deployed units on domestic assembly.
+    </p>
+  </div>
+</section>
+
+<!-- ---------------- next ---------------- -->
+<section class="alt">
+  <div class="wrap">
+    <p style="margin:0">
+      <a class="btn btn-outline" href="index.html#services">What we do</a>
+      &nbsp;
+      <a class="btn btn-outline" href="index.html#contact">Start a conversation</a>
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; <span id="year">2026</span> Imprecision Systems LLC. All rights reserved.</span>
+    <span>LoveRPi&reg; and GenBasic&reg; are registered trademarks of Imprecision Systems LLC. Libre Computer is a trademark of Imprecision Systems LLC.</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
